@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+
+    defaultConfig {
+        applicationId "tiledesk.android.sdk"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+
+    // <BEGIN CHAT21 SDK
+    compile 'com.android.support:multidex:1.0.1'
+    compile "com.google.android.gms:play-services:11.8.0"
+    compile 'com.android.support:design:26.1.0'
+//    compile 'org.chat21.android:chat21:1.0.8.1'
+//    compile 'com.vanniktech:emoji-ios:0.5.1'
+    compile project(':chat')
+    // <END CHAT21 SDK>
+
+
+    // <BEGIN TILEWIDGET SDK
+    compile project(path: ':widget')
+    // <BEGIN TILEWIDGET SDK
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '26.1.0'
+            }
+        }
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'

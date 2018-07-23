@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Tilewidget</string>
+
+    <!--firebase database reference (optional)-->
+    <string name="chat_firebase_url" translatable="false">https://chat-v2-dev.firebaseio.com</string>
+
+    <!--firebase storage reference (optional)-->
+    <string name="chat_firebase_storage_bucket" translatable="false">gs://chat-v2-dev.appspot.com</string>
+
+    <!--unique identifier of the app in which it is messaging-->
+    <string name="chat_firebase_appId" translatable="false">tilechat</string>
+    <!--<string name="chat_firebase_appId" translatable="false">got_chat</string>-->
+</resources>

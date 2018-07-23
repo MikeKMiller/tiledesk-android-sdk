@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.chat21.android.tilewidget">
+
+    <application>
+
+        <activity android:name=".ui.departments.activities.ContactFormActivity"></activity>
+
+        <activity android:name=".ui.departments.activities.DepartmentsListActivity"></activity>
+
+    </application>
+
+</manifest>
